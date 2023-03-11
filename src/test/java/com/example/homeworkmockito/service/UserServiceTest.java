@@ -1,5 +1,6 @@
 package com.example.homeworkmockito.service;
 import com.example.homeworkmockito.model.User;
+import com.example.homeworkmockito.repository.UserDaoImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

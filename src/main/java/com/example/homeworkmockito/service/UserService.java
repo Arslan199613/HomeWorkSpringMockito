@@ -1,5 +1,6 @@
 package com.example.homeworkmockito.service;
 import com.example.homeworkmockito.model.User;
+import com.example.homeworkmockito.repository.UserDaoImpl;
 import lombok.Getter;
 import org.springframework.stereotype.Service;
 

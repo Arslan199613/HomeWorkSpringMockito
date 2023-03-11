@@ -1,4 +1,4 @@
-package com.example.homeworkmockito.service;
+package com.example.homeworkmockito.repository;
 import com.example.homeworkmockito.exception.UserListNotExistException;
 import com.example.homeworkmockito.model.User;
 import lombok.Getter;
