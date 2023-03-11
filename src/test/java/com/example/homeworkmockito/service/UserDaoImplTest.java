@@ -1,11 +1,8 @@
 package com.example.homeworkmockito.service;
 import com.example.homeworkmockito.model.User;
 import org.junit.jupiter.api.*;
-
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
-
 
 class UserDaoImplTest {
 
@@ -20,23 +17,20 @@ class UserDaoImplTest {
 
     @Test
     void shouldReturnsTheUserIfExists() {
-        User user = new User("Сергей");
-        User userByName = userDao.getUserByName(user);
-        assertNotNull(userByName);
+
+        assertNotNull(userDao.getUserByName("Иван"));
     }
 
     @Test
     void shouldReturnsNullIfNotExists() {
-        User user = new User(null);
-        String name = user.getName();
-        assertNull(name);
+
+        assertNull(userDao.getUserByName(null));
     }
 
     @Test
     void shouldCheckIfThereIsAUser() {
-        User user = new User("Иван");
-        User userByName = userDao.getUserByName(user);
-        assertTrue(userDao.getUserList().contains(userByName));
+
+        assertTrue(userDao.getUserList().contains(new User("Иван")));
 
     }
 }

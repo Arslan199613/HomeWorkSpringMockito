@@ -5,7 +5,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import java.util.Collections;
+
+import java.util.Arrays;
 
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -22,21 +23,18 @@ class UserServiceTest {
 
     @Test
     public void shouldReturnTrueIfTheListContainAUser() {
-        User user2 = new User("Иван");
-        boolean contains = userDaoMock.getUserList().contains(user2);
+        User user1 = new User("Иван");
         when(userDaoMock.getUserList())
-                .thenReturn(Collections.emptyList());
+                .thenReturn(Arrays.asList(user1));
 
-        assertEquals(contains, userService.checkUserExist(user2));
+        assertTrue(userService.checkUserExist(user1));
     }
 
     @Test
     public void shouldReturnFalseIfTheListNotContainAUser() {
-        User user1 = new User("Михаил");
         when(userDaoMock.getUserList())
-                .thenReturn(Collections.emptyList());
-        boolean u1 = userService.checkUserExist(user1);
+                .thenReturn(Arrays.asList(new User("Вася")));
 
-        assertEquals(false, u1);
+        assertFalse(userService.checkUserExist(new User("Степа")));
     }
 }
